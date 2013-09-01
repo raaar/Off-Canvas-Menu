@@ -1,0 +1,165 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+// http://css-tricks.com/off-canvas-menu-with-css-target/
+
+@import "compass/reset";
+@import "compass/css3";
+
+
+$slideleft: 100%;
+
+
+p , a{
+  font-family: sans-serif;
+}
+
+body {
+    background: lightblue;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body { min-height: 100%; }
+a { text-decoration: none; }
+
+
+
+.main-header {
+display: none;
+  background: lightblue;
+  padding: 5px;
+  text-align: center;
+  color: white;
+
+  position: fixed;
+  width: 100%;
+  left: 0;
+  transition: all 0.3s ease;
+  height: 60px;
+  a {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    color: white;
+    font-size: 32px;
+  }
+}
+
+.menu-button {
+  background: #3B3B3B;
+	float: right;
+	height: 48px;
+	width: 60px;
+
+  z-index: 1000;
+  position: relative;
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+.line {
+    &:first-child {
+      margin-top: 11px;
+    }
+    background: white;
+    display: block;
+    height: 4px;
+    margin: 7px 10px 0 10px;
+    width: 40px;
+}
+
+.page-wrap {
+  float: right;
+  width: 100%;
+  transition: width 0.3s ease;
+}
+
+
+.main-nav {
+  position: fixed;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background: #3B3B3B;
+  overflow-y: auto;
+  padding-top: 60px;
+  @include transition(0.3s all);
+
+  a {
+    display: block;
+    color: white;
+    padding: 15px;
+    &:hover, &:focus {
+      //background: linear-gradient(#484848, #383838);
+      background: rgba(255,255,255,0.1);
+    }
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 34px;
+    background: linear-gradient(left, rgba(black, 0), rgba(black, 0.4));
+  }
+}
+
+
+
+.content {
+  padding: 100px 20px 20px 20px;
+}
+
+.close-menu {
+  display: none;
+}
+
+#main-nav:target {
+  width: $slideleft;
+}
+
+
+
+
+
+#main-nav:target + .page-wrap {
+  width: 80%;
+  .open-menu {
+     display: none; 
+  }
+  .close-menu {
+     display: block;
+  }
+  .main-header {
+    width: 80%;
+    left: $slideleft;
+  }
+}
+
+
+
+
+
+
+
+.slideIn { 
+	width: $slideleft;
+  display: block;
+}
+.swipeBody {
+//overflow: hidden;
+//overflow-y:hidden; 
+//overflow-x:hidden;
+
+overflow:hidden; 
+overflow-x:hidden; 
+overflow-y:hidden;
+}
+
+

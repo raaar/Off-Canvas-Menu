@@ -1,0 +1,1 @@
+function toggleMenu(){$("body").toggleClass("swipeBody");$("#main-nav").toggleClass("slideIn")}$(document).ready(function(){var e=document.getElementById("open-nav"),t=Hammer($("body")).on("swiperight",function(e){toggleMenu()}),n=Hammer($("body")).on("swipeleft",function(e){toggleMenu()});$(".menu-button").click(function(){toggleMenu()})});
